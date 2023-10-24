@@ -1,0 +1,16 @@
+<h1>Tải lên Video</h1>
+<form action="/admin/addMau" method="post" enctype="multipart/form-data">
+    <label for="tenMau">Tên Mẫu:</label>
+    <input type="text" id="tenMau" name="tenMau" required>
+    <br>
+    <label for="moTa">Mô Tả:</label>
+    <input type="text" id="moTa" name="moTa" required>
+    <br>
+    <label for="nhan">Nhãn (các nhãn cách nhau bằng dấu phẩy):</label>
+    <input type="text" id="nhan" name="nhan" required>
+    <br>
+    <label for="videoFile">Chọn tệp Video:</label>
+    <input type="file" id="videoFile" name="videoFile" accept="video/*" required>
+    <br>
+    <input type="submit" value="Tải lên">
+</form>
