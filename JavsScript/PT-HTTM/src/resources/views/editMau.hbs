@@ -1,0 +1,20 @@
+<h1>Sửa mẫu</h1>
+<form action="/admin/editMau/{{mau._id}}" method="post">
+    <label for="tenMau">Tên Mẫu:</label>
+    <input type="text" id="tenMau" name="tenMau" readonly value="{{mau.ten}}">
+    <br>
+    <label for="moTa">Mô Tả:</label>
+    <input type="text" id="moTa" name="moTa" required value="{{mau.mota}}">
+    <br>
+    <label for="nhan">Nhãn (các nhãn cách nhau bằng dấu phẩy):</label>
+    <input type="text" id="nhan" name="nhan" required value="{{mau.nhan}}">
+    <br>
+    <label for="nhan">Video:</label>
+    {{!-- <video controls width="100%" >
+        <source src="/admin/getVideo/{{mau._id}}" type="video/mp4">
+        Trình duyệt của bạn không hỗ trợ video.
+    </video> --}}
+    <iframe width="100%" height="360px" src="https://www.youtube.com/embed/{{mau.video}}" frameborder="0"
+        allowfullscreen></iframe>
+    <input type="submit" value="Sửa mẫu" class="btn btn-success">
+</form>

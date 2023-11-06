@@ -1,0 +1,51 @@
+<h1>Xem mẫu</h1>
+<form class="row" style="max-width: none">
+    <div class="col-md-6">
+        <label for="tenMau">Tên Mẫu:</label>
+        <input type="text" id="tenMau" name="tenMau" readonly value="{{mau.ten}}">
+        <br>
+        <label for="moTa">Mô Tả:</label>
+        <input type="text" id="moTa" name="moTa" readonly value="{{mau.mota}}">
+        <br>
+        <label for="nhan">Video:</label>
+        <video controls width="100%">
+            <source src="/admin/getVideo/{{mau._id}}" type="video/mp4">
+            Trình duyệt của bạn không hỗ trợ video.
+        </video>
+    </div>
+    <div class="col-md-6">
+        <label for="nhan">Nhãn:</label>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Frame</th>
+                    <th>Person</th>
+                    <th>X_left</th>
+                    <th>Y_left</th>
+                    <th>X_right</th>
+                    <th>Y_right</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each mau.nhan}}
+                {{#with this}}
+                {{#each person}}
+                <tr>
+                    {{#if @first}}
+                    <td rowspan="{{../person.length}}">{{../frame}}</td>
+                    {{/if}}
+                    <td>{{this.id}}</td>
+                    <td>{{this.x_left}}</td>
+                    <td>{{this.y_left}}</td>
+                    <td>{{this.x_right}}</td>
+                    <td>{{this.y_right}}</td>
+                </tr>
+                {{/each}}
+                {{/with}}
+                {{/each}}
+            </tbody>
+        </table>
+        <br>
+    </div>
+
+</form>

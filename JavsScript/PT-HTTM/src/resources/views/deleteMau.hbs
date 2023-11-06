@@ -1,0 +1,7 @@
+<h1>Xóa mẫu</h1>
+<form>
+    <label >Bạn có chắc chắn muốn xóa mẫu : {{mau.ten}}</label>
+    <br>
+    <input type="submit" formaction="/admin" formmethod="get" class="btn btn-secondary" value="Hủy">
+    <input type="submit" formaction="/admin/deleteMau/{{mau._id}}" formmethod="post" class="btn btn-danger" value="Xóa">
+</form>

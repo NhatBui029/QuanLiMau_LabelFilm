@@ -3,9 +3,10 @@ const router = express.Router();
 const LoginController = require('../app/controllers/LoginController');
 
 router.get('/',LoginController.getLogin);
-router.get('/video',LoginController.video);
-router.get('/getVideo/:id',LoginController.getVideo);
+router.get('/read',LoginController.read);
+router.get('/test',LoginController.test);
 router.post('/login',LoginController.login);
+router.get('/logout',LoginController.logout);
 router.post('/signup',LoginController.signup);
 
 module.exports = router;

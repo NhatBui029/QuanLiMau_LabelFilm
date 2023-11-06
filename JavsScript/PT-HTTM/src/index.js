@@ -8,6 +8,7 @@ const router = require('./routes/index')
 const db = require('./db/index')
 const cookieParser = require('cookie-parser')
 const formidable = require('formidable');
+const util = require('../src/public/util/mongoose')
 
 db.connect();
 
@@ -26,11 +27,8 @@ app.engine(
     handlebars.engine({
         extname: '.hbs',
         helpers: {
-            // sum: (a, b) => a + b,
-            // price: (gia) => mongooseViewPrice(gia),
-            // slogan: (input) => slogan(input),
-            // isEqual: (value1,value2,options)=> value1 === value2,
-            // formatDate: (date) => formatDate(date)
+            sum: (a, b) => a + b,
+            formatDate: (date) => util.formatDate(date)
         }
     }),
 )
