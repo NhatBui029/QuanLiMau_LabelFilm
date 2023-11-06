@@ -137,7 +137,7 @@ class LoginController {
                 const match2 = file.match(/(\d+)\.mp4$/);
                 const number = parseInt(match2[1], 10);
 
-                if (number > 1 && number < 3 && path.extname(file) === '.mp4') {
+                if (number > 2 && number < 4 && path.extname(file) === '.mp4') {
                     const videoPath = path.join(videoDirectory, file);
                     const nameFile = file.split('.')[0];
                     const jsonPath = path.join(JsonDirectory, nameFile + '.json');
