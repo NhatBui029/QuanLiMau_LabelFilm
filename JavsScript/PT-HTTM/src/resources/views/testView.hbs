@@ -1,0 +1,19 @@
+<h2>{{nhan.name}}</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tên frame</th>
+            <th>Tùy chọn</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each nhan.data}}
+        <tr>
+            <td>{{this._id}}</td>
+            <td>{{this.name}}</td>
+            <td><a href="/viewImage/{{../nhan._id}}/{{this._id}}">Xem</a></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

@@ -20,6 +20,7 @@ app.use(
     express.json(),
     morgan('dev'),
     express.static(path.join(__dirname, 'public')),
+    // express.static(path.join(__dirname, 'test')),
 );
 
 app.engine(

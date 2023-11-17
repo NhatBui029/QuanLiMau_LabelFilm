@@ -11,8 +11,6 @@
     <tr>
       <th scope="col">STT</th>
       <th scope="col">Tên mẫu</th>
-      <th scope="col">Mô tả</th>
-      <th scope="col">Nhãn</th>
       <th scope="col">Thời gian tạo</th>
       <th scope="col">Tùy chọn</th>
     </tr>
@@ -21,13 +19,10 @@
     {{#each maus}}
     <tr>
       <th scope="row">{{sum @index 1}}</th>
-      <td>{{this.ten}}</td>
-      <td>{{this.mota}}</td>
-      <td>{{this.fileNhan}}</td>
+      <td>{{this.name}}</td>
       <td>{{formatDate this.updatedAt}}</td>
-      <td class="option">
-        <a href="/admin/viewMau/{{this._id}}" type="button" class="btn btn-success">Xem</a>
-        <a href="/admin/editMau/{{this._id}}" type="button" class="btn btn-warning">Sửa</a>
+      <td >
+        <a href="/admin/viewMau/{{this._id}}" type="button" class="btn btn-success">Chi tiết</a>
         <a href="/admin/deleteMau/{{this._id}}" type="button" class="btn btn-danger">Xóa</a>
       </td>
     </tr>
@@ -35,31 +30,31 @@
   </tbody>
 </table>
 <nav aria-label="..." class="d-flex justify-content-center">
-        <ul class="pagination">
-            <li class="page-item">
-                <a class="page-link" href="/admin?page=1">First</a>
-            </li>
-            <li class="page-item previous">
-                <a class="page-link" href="/admin?page={{pagePrevious}}">Previous</a>
-            </li>
-            <li class="page-item">
-                {{#if pageLeft }}
-                <a class="page-link" href="/admin?page={{pageLeft}}">{{pageLeft}}</a>
-                {{/if}}
-            </li>
-            <li class="page-item active">
-                <span class="page-link" id="page">{{pageNumber}} </span>
-            </li>
-            <li class="page-item">
-                {{#if pageRight }}
-                <a class="page-link" href="/admin?page={{pageRight}}">{{pageRight}}</a>
-                {{/if}}
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="/admin?page={{pageNext}}">Next</a>
-            </li>
-            <li class="page-item ">
-                <a class="page-link" href="/admin?page={{pageLast}}">Last</a>
-            </li>
-        </ul>
-    </nav>
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" href="/admin?page=1">First</a>
+    </li>
+    <li class="page-item previous">
+      <a class="page-link" href="/admin?page={{pagePrevious}}">Previous</a>
+    </li>
+    <li class="page-item">
+      {{#if pageLeft }}
+      <a class="page-link" href="/admin?page={{pageLeft}}">{{pageLeft}}</a>
+      {{/if}}
+    </li>
+    <li class="page-item active">
+      <span class="page-link" id="page">{{pageNumber}} </span>
+    </li>
+    <li class="page-item">
+      {{#if pageRight }}
+      <a class="page-link" href="/admin?page={{pageRight}}">{{pageRight}}</a>
+      {{/if}}
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="/admin?page={{pageNext}}">Next</a>
+    </li>
+    <li class="page-item ">
+      <a class="page-link" href="/admin?page={{pageLast}}">Last</a>
+    </li>
+  </ul>
+</nav>

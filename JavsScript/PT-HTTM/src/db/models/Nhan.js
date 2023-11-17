@@ -3,13 +3,16 @@ const Schema = mongoose.Schema;
 const mongooseDelete = require('mongoose-delete');
 
 
+const Frame = new Schema({
+    name: {type: String},
+    image: {type: Buffer},
+    image2: {type: Buffer},
+    contentType: {type: String}
+});
+
 const Nhan = new Schema({
-    frame: {type: String},
-    x_left: {type: Number},
-    y_left: {type: Number},
-    x_right: {type: Number},
-    y_right: {type: Number},
-    
+    name : {type: String},
+    data: {type: [Frame]}
 });
 
 module.exports = mongoose.model('Nhan',Nhan);
