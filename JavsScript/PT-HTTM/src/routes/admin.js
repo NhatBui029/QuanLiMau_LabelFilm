@@ -6,9 +6,10 @@ const middleware = require('../app/middlewares/authorization')
 router.get('/addMau', middleware.requireAdmin, AdminController.getAddMau);
 router.post('/addMau', middleware.requireAdmin, AdminController.addMau);
 router.get('/addLabel/:id1/:id2', middleware.requireAdmin, AdminController.addLabel);
-router.get('/viewLabel/:id1/:id2', middleware.requireAdmin, AdminController.viewLabel);
-router.get('/editLabel/:id1/:id2', middleware.requireAdmin, AdminController.editLabel);
-router.get('/deleteLabel/:id1/:id2', middleware.requireAdmin, AdminController.deleteLabel);
+router.get('/viewFrame/:id1/:id2', middleware.requireAdmin, AdminController.viewFrame);
+router.get('/editLabel/:id1/:id2/:id3', middleware.requireAdmin, AdminController.editLabel);
+router.get('/deleteFrame/:id1/:id2', middleware.requireAdmin, AdminController.deleteFrame);
+router.get('/deleteLabel/:id1/:id2/:id3', middleware.requireAdmin, AdminController.deleteLabel);
 router.get('/getVideo/:id', middleware.requireAdmin, AdminController.getVideo);
 router.get('/getImage/:id1/:id2', middleware.requireAdmin, AdminController.getImage);
 router.get('/viewMau/:id', middleware.requireAdmin, AdminController.viewMau);

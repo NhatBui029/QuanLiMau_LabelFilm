@@ -7,11 +7,9 @@ def click_and_drag(event, x, y, flags, param):
     global rect_pts
 
     if event == cv2.EVENT_LBUTTONDOWN:
-        # Bắt đầu tạo hình chữ nhật khi click chuột trái
         rect_pts = [(x, y)]
 
     elif event == cv2.EVENT_LBUTTONUP:
-        # Kết thúc tạo hình chữ nhật khi nhả chuột
         rect_pts.append((x, y))
 
         print(f"{rect_pts[0][0]} {rect_pts[0][1]} {rect_pts[1][0]} {rect_pts[1][1]}")
@@ -33,7 +31,12 @@ while True:
 
         img_with_rect = image.copy()
         cv2.rectangle(img_with_rect, rect_pts[0], rect_pts[1], (0, 255, 0), 2)
-        cv2.imwrite('D:/PT-HTTM/Images/image2.jpg', img_with_rect)
+
+        x = max(rect_pts[0][0]+10 , 0)
+        y = max(rect_pts[0][1] + 30, 0)
+        cv2.putText(img_with_rect,'Label '+ sys.argv[2], (x,y),  16, 1, (0, 255, 0), 2)
+
+        cv2.imwrite(sys.argv[3], img_with_rect)
         break
 
     cv2.imshow('Hình ảnh', img_copy)

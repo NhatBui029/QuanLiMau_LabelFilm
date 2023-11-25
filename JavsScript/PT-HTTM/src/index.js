@@ -20,7 +20,6 @@ app.use(
     express.json(),
     morgan('dev'),
     express.static(path.join(__dirname, 'public')),
-    // express.static(path.join(__dirname, 'test')),
 );
 
 app.engine(
@@ -29,7 +28,8 @@ app.engine(
         extname: '.hbs',
         helpers: {
             sum: (a, b) => a + b,
-            formatDate: (date) => util.formatDate(date)
+            formatDate: (date) => util.formatDate(date),
+            equals: (number1 , number2) => number1 === number2,
         }
     }),
 )

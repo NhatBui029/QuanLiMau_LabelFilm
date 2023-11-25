@@ -17,6 +17,7 @@
             <thead>
                 <tr>
                     <th>Frame</th>
+                    <th>Nhãn</th>
                     <th>Tọa độ trái trên</th>
                     <th>Tọa độ phải dưới</th>
                     <th>Tùy chọn</th>
@@ -24,21 +25,41 @@
             </thead>
             <tbody>
                 {{#each mau.data}}
+                {{#with this}}
+                {{#each data}}
                 <tr>
+                    {{#if @first}}
+                    <td rowspan="{{../data.length}}">{{../name}}</td>
+                    {{/if}}
                     <td>{{this.name}}</td>
-                    <td>( {{this.x_left}} ; {{this.y_left}} )</td>
-                    <td>( {{this.x_right}} ; {{this.y_right}} )</td>
-                    <td>
-                        {{#if this.x_left}}
-                        <a href="/admin/viewLabel/{{../mau._id}}/{{this._id}}" type="button"
-                            class="btn btn-info">Xem</a>
-                        {{else}}
-                        <a href="/admin/addLabel/{{../mau._id}}/{{this._id}}" type="button"
-                            class="btn btn-success">Thêm</a>
-                        {{/if}}
+                    <td>({{this.x_left}}; {{this.y_left}})</td>
+                    <td>({{this.x_right}}; {{this.y_right}})</td>
+                    {{#if @first}}
+                    <td rowspan="{{../data.length}}">
+                        <a href="/admin/viewFrame/{{../../mau._id}}/{{../_id}}" type="button" class="btn btn-info">Chi
+                            tiết</a>
+                        <a href="/admin/deleteFrame/{{../../mau._id}}/{{../_id}}" type="button"
+                            class="btn btn-danger">Xóa</a>
+
                     </td>
+                    {{/if}}
                 </tr>
                 {{/each}}
+                {{#unless data}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td colspan="3">No data available</td>
+                    <td>
+                        <a href="/admin/addLabel/{{../mau._id}}/{{this._id}}" type="button"
+                            class="btn btn-success">Thêm</a>
+                        <a href="/admin/deleteFrame/{{../mau._id}}/{{this._id}}" type="button"
+                            class="btn btn-danger">Xóa</a>
+                    </td>
+                </tr>
+                {{/unless}}
+                {{/with}}
+                {{/each}}
+
             </tbody>
         </table>
         <br>
